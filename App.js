@@ -11,7 +11,7 @@ export default class App extends React.Component{
   render(){
    return (
    
-     <AppContainer />
+     <AppContainer/>
     
     );
    }
@@ -24,16 +24,16 @@ const TabNavigator=createBottomTabNavigator({
 {
   defaultNavigationOptions:({navigation})=>({
     tabBarIcon: ()=>{
-      const route=navigation.state.routeName;
+      const routeName=navigation.state.routeName;
       console.log(route)
-      if(route==="WriteScreen"){
+      if(routeName==="WriteScreen"){
         return(
           <Image
           source={require('./images/write.png')}
           style={{width:50,height:50}}/>
         )
       }
-      else if(route==="ReadScreen"){
+      else if(routeName==="ReadScreen"){
         return(
           <Image
           source={require('./images/read.png')}
@@ -46,11 +46,12 @@ const TabNavigator=createBottomTabNavigator({
 )
 
 const AppContainer=createAppContainer(TabNavigator)
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'
+  }
 });
